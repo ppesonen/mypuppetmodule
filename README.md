@@ -1,4 +1,4 @@
-This Puppet Module was made for course 'Linuxin keskitetty hallinta'.
+This Puppet Module was made for course 'Linuxin keskitetty hallinta'.  
 http://terokarvinen.com/2016/aikataulu-linuxin-keskitetty-hallinta-ict4tn011-10-loppusyksy-2016
 
 ## Puppet Module
