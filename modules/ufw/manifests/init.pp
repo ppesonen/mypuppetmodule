@@ -4,13 +4,17 @@ class ufw {
 	Exec {
 		path => '/bin/:/usr/bin/:/sbin/:/usr/sbin/',
 	}
-	exec { 'ufw allow 22/tcp':
+	exec { 'ufw22':
+		command => 'ufw allow 22/tcp',
 		unless => 'ufw status verbose|grep 22/tcp',
 	}
-        exec { 'ufw enable':
+        exec { 'ufwenable':
+		command => 'ufw enable',
                 unless => 'sudo ufw status verbose|grep "Status: active"',
+		require => Exec['ufw22'],
         }
 	exec { 'ufw allow 80/tcp':
 		unless => 'ufw status verbose|grep 80/tcp',
+		require => Exec['ufwenable'],
 	}
 }

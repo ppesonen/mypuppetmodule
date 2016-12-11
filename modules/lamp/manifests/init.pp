@@ -23,10 +23,12 @@ class lamp {
 	package { 'libapache2-mod-php':
 		ensure => 'installed',
 		require => Package['apache2'],
+		notify => Service['apache2'],
 	}
 	package { 'php-mysql':
 		ensure => 'installed',
 		require => Package['apache2'],
+		notify => Service['apache2'],
 	}
 	exec { 'mysql-db':
 		command => "mysql -uroot -e \"create database blogi; grant all on blogi.* to blogaaja@localhost identified by '$wppwd';\"",
