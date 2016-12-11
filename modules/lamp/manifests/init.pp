@@ -29,7 +29,7 @@ class lamp {
 		require => Package['apache2'],
 	}
 	exec { 'mysql-db':
-		command => "mysql -uroot -e \"create database blogi; grant all on blogi.* to blogaaja@localhost identified by '!(Bl0g1)';\"",
+		command => "mysql -uroot -e \"create database blogi; grant all on blogi.* to blogaaja@localhost identified by '$wppwd';\"",
 		unless => 'mysqlshow blogi',
 		path => '/bin/:/usr/bin/:/sbin/:/usr/sbin/',
 		require => Service['mysql'],

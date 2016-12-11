@@ -8,7 +8,7 @@ class wordpress {
 		unless => 'ls /var/www/html/wp-admin',
 	}
 	file { '/var/www/html/wp-config.php':
-		content => template('wordpress/wp-config.php'),
+		content => template('wordpress/wp-config.erb'),
 		require => Exec['wordpressing'],
 	}	
 }
