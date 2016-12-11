@@ -5,6 +5,6 @@
 - Installs Wordpress with DB access
 
 ## Notes
-Wordpress installs to /var/www/
-MySQL DB wordpress user and password hardcoded to module
-MySQL root password is empty
+- Wordpress installs to /var/www/
+- MySQL wordpress user and password hardcoded to module
+- MySQL root password is empty
