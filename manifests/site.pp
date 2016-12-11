@@ -1,5 +1,5 @@
-class lamp { }
-class ssh { }
-class ufw { }
-class wordpress { }
+include ssh
+include ufw
+include lamp
+include wordpress
 

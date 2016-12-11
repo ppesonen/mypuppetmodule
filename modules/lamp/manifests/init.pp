@@ -2,9 +2,6 @@ class lamp {
 	package { 'apache2':
 		ensure => 'installed',
 	}
-#	file { '/etc/apache2/mods-available/php7.0.conf':
-#		content => template('lamp/php7.0.conf'),
-#	}	
 
 	service { 'apache2':
 		ensure => 'running',
@@ -35,19 +32,10 @@ class lamp {
 	package { 'php-mysql':
 		ensure => 'installed',
 	}
-#	exec { 'a2enmod userdir':
-#		path => '/bin/:/usr/bin/:/sbin/:/usr/sbin/',
-#		unless => 'ls /etc/apache2/mods-enabled/userdir.conf',
-#		require => Package['apache2'],
-#		notify => Service['apache2'],
-#	}
 
 	exec { 'mysql-db':
-#		command => 'mysqladmin -uroot password !#!(Tiatokantaa)',
-#		unless => 'mysqladmin -uroot -p$mysql_root_pwd status',
-
-
 		command => "mysql -uroot -e \"create database blogi; grant all on blogi.* to blogaaja@localhost identified by '!(Bl0g1)';\"",
+		unless => 'mysqlshow blogi',
 		path => '/bin/:/usr/bin/:/sbin/:/usr/sbin/',
 		require => Service['mysql'],
 	}
