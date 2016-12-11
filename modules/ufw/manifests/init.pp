@@ -9,7 +9,7 @@ class ufw {
 		unless => 'ufw status verbose|grep 22/tcp',
 	}
         exec { 'ufwenable':
-		command => 'ufw enable',
+		command => 'ufw --force enable',
                 unless => 'sudo ufw status verbose|grep "Status: active"',
 		require => Exec['ufw22'],
         }
