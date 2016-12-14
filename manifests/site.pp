@@ -6,8 +6,8 @@ Package {
 	allowcdrom => 'true',
 	}
 
-include ssh
-include ufw
-include lamp
-include wordpress
+class {"ssh":}
+class {"ufw":}
+class {"lamp":}
+class {"wordpress":}
 
